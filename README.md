@@ -10,20 +10,20 @@ Harrison Cradduck, Marah Donahoe, Joey Endres, & William Knapp
 Producers/record labels make money when their signed artists and bands create popular songs, so our goal to help them get a better understanding of what makes a song “popular” or “viral” by building models to predict the success/popularity of a song on YouTube (measured as number of views) through the use of predictors like genre, artist history & type, song audio features, sentiment analysis of the lyrics and titles, and other text mining techniques.
 
 ## README
-get_songs.ipynb: 
+`get_songs.ipynb`: 
 
-get_lyrics.ipynb: 
+`get_lyrics.ipynb`: 
 
-get_artist_features.ipynb: 
+`get_artist_features.ipynb`: 
 
-get_YouTube_metrics.ipynb: 
+`get_YouTube_metrics.ipyn`b: 
 
-get_Spotify_features.ipynb: 
+`get_Spotify_features.ipynb`: 
 
-MongoDB_collections.ipynb: 
+`MongoDB_collections.ipynb`: 
 
-final_data.ipynb: 
+`final_data.ipynb`: 
 
-final_dataset.csv: the final dataset produced and saved from `final_data.ipynb` as a .csv file
+`final_dataset.csv`: the final dataset produced and saved from `final_data.ipynb` as a .csv file
 
-descriptive_summary_cradduhj.ipynb: 
+`descriptive_summary_cradduhj.ipynb`: 
