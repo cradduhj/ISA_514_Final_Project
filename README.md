@@ -11,11 +11,19 @@ Producers/record labels make money when their signed artists and bands create po
 
 ## README
 get_songs.ipynb: 
+
 get_lyrics.ipynb: 
+
 get_artist_features.ipynb: 
+
 get_YouTube_metrics.ipynb: 
+
 get_Spotify_features.ipynb: 
+
 MongoDB_collections.ipynb: 
+
 final_data.ipynb: 
+
 final_dataset.csv: the final dataset produced and saved from `final_data.ipynb` as a .csv file
+
 descriptive_summary_cradduhj.ipynb: 
