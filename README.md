@@ -26,8 +26,14 @@ Producers/record labels make money when their signed artists and bands create po
 `MongoDB_collections.ipynb`: process of inserting all previous CSV files (lyrics, artist-related features, YouTube metrics, Spotify audio features) into collections in MongoDB
 * Streamlined the MongoDB data insertion process for all team members.
 
-`final_data.ipynb`: process of accessing all data collections in MongoDB as dataframes in Python, merging these dataframes (using `track_id` and a combination of `title` and `artist`) to combine all features for each song into one dataframe, and cleaning the features in the dataframe by imputing missing values, correcting data types, and making the data model-ready; saved final dataframe with 6,578 complete observations (songs) as `final_dataset.csv`
+`final_data.ipynb`: process of accessing all data collections in MongoDB as dataframes in Python, merging these dataframes (using `track_id` and a combination of `title` and `artist`) to combine all features for each song into one dataframe, and cleaning the features in the dataframe by imputing missing values, correcting data types, and making the data model-ready; saved final dataframe with 5,492 complete observations (songs) as `final_dataset.csv`
 
 `final_dataset.csv`: the final dataset produced and saved from `final_data.ipynb` as a CSV file
 
 `descriptive_summary_cradduhj.ipynb`: Harrison's descriptive summary of the final dataset, including line charts, bar plots, a heatmap, and a scatter plot
+
+`feature_engineering_cradduhjipynb`: Harrison's feature engineering of the final dataset, including sentiment analysis, lexical features, and LDA; saved final dataframe with added features as `model_ready_dataset.csv`
+
+`model_ready_dataset.csv`: the model-ready dataset produced and saved from `feature_engineering_cradduhj.ipynb` as a CSV file
+
+`modeling_cradduhj.ipynb`: Harrison's modeling of the model-ready dataset, including MLR with scaled numeric variables and a log-transformed target (view_count)
