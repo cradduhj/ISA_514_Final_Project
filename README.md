@@ -9,6 +9,9 @@ Harrison Cradduck, Marah Donahoe, Joey Endres, & William Knapp
 ## Project Overview
 Producers/record labels make money when their signed artists and bands create popular songs, so our goal to help them get a better understanding of what makes a song “popular” or “viral” by building models to predict the success/popularity of a song on YouTube (measured as number of views) through the use of predictors like genre, artist history & type, song audio features, sentiment analysis of the lyrics and titles, and other text mining techniques.
 
+## Repository Structure
+This public repository includes the project submission files (in the `Submission` folder) in addition to the series of Jupyter notebooks necessary to collect, analyze, engineer, and model our data. Each of the files below must be run in the order that they are listed to fully and exactly reproduce the data collection, data analysis, feature engineering, and predictive modeling processes described in this project.
+
 ## README
 `get_songs.ipynb`: process of web-scraping song titles, artists, and chart years from the Hot 100 Weekly Billboard Charts using the BeautifulSoup package in Python; saved dataframe with songs as `all_songs_clean.csv`
 
