@@ -12,31 +12,34 @@ Producers/record labels make money when their signed artists and bands create po
 ## Repository Structure
 This public repository includes the project submission files (in the `Submission` folder) in addition to the series of Jupyter notebooks necessary to collect, analyze, engineer, and model our data. Each of the files below must be run in the order that they are listed to fully and exactly reproduce the data collection, data analysis, feature engineering, and predictive modeling processes described in this project.
 
-## README
-`get_songs.ipynb`: process of web-scraping song titles, artists, and chart years from the Hot 100 Weekly Billboard Charts using the BeautifulSoup package in Python; saved dataframe with songs as `all_songs_clean.csv`
+## Jupyter Notebook 
+`get_songs.ipynb`: This notebook demonstrates the process of web-scraping song titles, artists, and chart years from the Hot 100 Weekly Billboard Charts by year using the BeautifulSoup package in Python; it produces a saved dataframe with songs named `all_songs_clean.csv`.
 
-`get_lyrics.ipynb`: process of pulling song lyrics (text) for each song in the songs CSV file using the Lyrics Genius library in Python to access the Genius API; saved dataframe with songs and lyrics as `all_songs_clean_lyrics.csv`
+`get_lyrics.ipynb`: This notebook demonstrates the process of pulling song lyrics (text) by matching `title` and `artist` for each song in the songs CSV file using the Lyrics Genius library in Python to access the Genius API; it inserts the dataframe into a MongoDB collection named LYRICS; it produces a saved dataframe with songs and lyrics named `all_songs_clean_lyrics.csv`.
 
-`get_artist_features.ipynb`: process of pulling artist-related features (name, type, genre(s), country, start year of career, etc.) for each unique artist in the songs CSV file using the MusicBrainz API and Wikidata SPARQL endpoints; saved datafrmae with artists and artist-related features as `all_artists`
+`get_artist_features.ipynb`: This notebook demonstrates the process of pulling artist-related features (name, type, genre(s), country, start year of career, etc.) for each unique artist in the songs CSV file using the MusicBrainz API and Wikidata SPARQL endpoints; it inserts the dataframe into a MongoDB collection named ARTISTS; it produces a saved dataframe with artists and artist-related features names `all_artists.csv`.
 
-`get_YouTube_metrics.ipynb`: process of web-scraping publicly accessible YouTube video metadata (views, likes, comment counts) for each song in the songs CSV file using the yt-dlp package in Python; saved dataframe with songs and YouTube metrics as `all_songs_clean_youtube.csv`
-* Attempted to use the YouTube Data API v3, but were met with a 100 requests per day maximum.
+`get_YouTube_metrics.ipynb`: This notebook demonstrates the process of web-scraping publicly accessible YouTube video metadata (views, likes, comment counts) by matching `title` and `artist` for each song in the songs CSV file using the yt-dlp package in Python; it lightly cleans the YouTube data and inserts the dataframe into a MongoDB collection named YOUTUBE; it produces a saved dataframe with songs and YouTube metrics named `all_songs_clean_youtube.csv`.
+* Attempted to use the YouTube Data API v3 but were met with a 100 requests per day maximum.
   
-`get_Spotify_features.ipynb`: process of attempting to acquire Spotify audio features (loudness, liveness, energy, key, tempo, acousticness, etc.) for each song in the songs CSV file by merging six different Kaggle datasets with the songs dataframe; saved dataframe with songs and Spotify audio features as `6578_songs_clean_spotify.csv`
+`get_Spotify_features.ipynb`: This notebook demonstrates the process of acquiring Spotify audio features (loudness, liveness, energy, key, tempo, acousticness, etc.) by matching `track_id`, then `title` and `artist`, for each song in the songs CSV file with Kaggle datasets, and merging the six different Kaggle datasets with the songs dataframe; it lightly cleans the merged columns and inserts the dataframe into a MongoDB collection named SPOTIFY; it produces a saved dataframe with songs and Spotify audio features named `6578_songs_clean_spotify.csv`.
 * Attempted to use the Spotify Web API, but the audio features endpoint was deprecated in November 2024.
-* The six Kaggle datasets with audio features for a variety of songs were created pre-November 2024.
+* The six Kaggle datasets with audio features for a variety of songs were created pre-November 2024, allowing us to bypass the endpoint deprecation and use the Kaggle datasets as a proxy source.
 
-`MongoDB_collections.ipynb`: process of inserting all previous CSV files (lyrics, artist-related features, YouTube metrics, Spotify audio features) into collections in MongoDB
+`MongoDB_collections.ipynb`: This notebook demonstrates the process of inserting all previous CSV files (lyrics, artist-related features, YouTube metrics, Spotify audio features) into collections in MongoDB.
+* FYI: The code in this notebook does not need to be run completely or at all if the data from the previous notebooks has been properly inserted into MongoDB collections.
+* This notebook is a check to ensure all data is inserted into MongoDB collections.
+* If unsure of data integrity and completion in MongoDB, delete all related collections in MongoDB and run this notebook.
 * Streamlined the MongoDB data insertion process for all team members.
 
-`final_data.ipynb`: process of accessing all data collections in MongoDB as dataframes in Python, merging these dataframes (using `track_id` and a combination of `title` and `artist`) to combine all features for each song into one dataframe, and cleaning the features in the dataframe by imputing missing values, correcting data types, and making the data model-ready; saved final dataframe with 5,492 complete observations (songs) as `final_dataset.csv`
+`data_cleaning.ipynb`: This notebook demonstrates the process of accessing all data collections in MongoDB as dataframes in Python, merging these dataframes (using `track_id` and a combination of `title` and `artist`) to combine all features for each song into one dataframe, and cleaning the features in the dataframe by imputing missing values, correcting data types, dummy-coding factors, and mapping genres; it produces a saved dataframe with 5,492 complete observations (songs) named `final_dataset.csv`.
 
-`final_dataset.csv`: the final dataset produced and saved from `final_data.ipynb` as a CSV file
+`exploratory_data_analysis.ipynb`: This notebook performs exploratory data analysis on the final cleaned dataset, `final_dataset.csv`, produced from `data_cleaning.ipynb`, by creating descriptive summaries of songs, artists, lyrics, chart years, and audio features using tables, plots (bar, line, column, heatmap, scatter), and dictionaries (MongoDB). This is to inform feature engineering decisions and begin to formulate expectations for predictive modeling in terms of model selection and performance.
 
-`descriptive_summary_cradduhj.ipynb`: Harrison's descriptive summary of the final dataset, including line charts, bar plots, a heatmap, and a scatter plot
+`feature_engineering.ipynb`: This notebook takes the final cleaned dataset, `final_dataset.csv`, produced from `data_cleaning.ipynb`, and applies feature engineering/text mining techniques like sentiment analysis (of both song titles and lyrics), subjectivity analysis, lexical analysis (word count, average word length, unique word count, etc.), and LDA topic modeling to the data to make it model-ready; it produces a saved dataframe with the model-ready data (5,395 complete songs, 60 predictors) named `model_ready_dataset.csv`.
 
-`feature_engineering_cradduhjipynb`: Harrison's feature engineering of the final dataset, including sentiment analysis, lexical features, and LDA; saved final dataframe with added features as `model_ready_dataset.csv`
+`RandomForest_modeling`: 
 
-`model_ready_dataset.csv`: the model-ready dataset produced and saved from `feature_engineering_cradduhj.ipynb` as a CSV file
+`XGBoost_modeling`: 
 
-`modeling_cradduhj.ipynb`: Harrison's modeling of the model-ready dataset, including MLR with scaled numeric variables and a log-transformed target (view_count)
+`Support_Vector_modeling`: 
