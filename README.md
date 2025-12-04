@@ -1,7 +1,7 @@
 # ISA_514_Final_Project
 
 ## Description
-This repository contains all of the code and individual assignment submissions related to the Fall 2025 ISA 514 Final Group Project.
+This repository contains all of the Jupyter notebooks and individual assignment submissions related to the Fall 2025 ISA 514 Final Group Project.
 
 ## Team Members
 Harrison Cradduck, Marah Donahoe, Joey Endres, & William Knapp
