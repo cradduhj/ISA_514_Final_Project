@@ -38,8 +38,10 @@ This public repository includes the project submission files (in the `Submission
 
 `feature_engineering.ipynb`: This notebook takes the final cleaned dataset, `final_dataset.csv`, produced from `data_cleaning.ipynb`, and applies feature engineering/text mining techniques like sentiment analysis (of both song titles and lyrics), subjectivity analysis, lexical analysis (word count, average word length, unique word count, etc.), and LDA topic modeling to the data to make it model-ready; it produces a saved dataframe with the model-ready data (5,395 complete songs, 60 predictors) named `model_ready_dataset.csv`.
 
-`RandomForest_modeling`: 
+`DecisionTree_modeling`: This notebook fits and evaluates decision tree models on the data using cross-validation and a grid search for hyperparameter tuning. The first model considers `view_count` as the original, continuous response variable. The second model considers `viral` as a created binary response variable with `1` indicating viral (greater than 100,000,000 views) and `0` indicating not viral (less than or equal to 100,000,000 views).
 
-`XGBoost_modeling`: 
+`RandomForest_modeling`: This notebook fits and evaluates Random Forest models on the data using cross-validation and a grid search for hyperparameter tuning. The first model considers `view_count` as the original, continuous response variable. The second model considers `viral` as a created binary response variable with `1` indicating viral (greater than 100,000,000 views) and `0` indicating not viral (less than or equal to 100,000,000 views).
 
-`Support_Vector_modeling`: 
+`XGBoost_modeling`: This notebook fits and evaluates XGBoost models on the data using cross-validation and a grid search for hyperparameter tuning. The first model considers `view_count` as the original, continuous response variable. The second model considers `viral` as a created binary response variable with `1` indicating viral (greater than 100,000,000 views) and `0` indicating not viral (less than or equal to 100,000,000 views).
+
+`Support_Vector_modeling`: This notebook fits and evaluates Support Vector models on the data using cross-validation and a grid search for hyperparameter tuning. The first model considers `view_count` as the original, continuous response variable. The second model considers `viral` as a created binary response variable with `1` indicating viral (greater than 100,000,000 views) and `0` indicating not viral (less than or equal to 100,000,000 views).
