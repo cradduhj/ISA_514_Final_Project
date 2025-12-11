@@ -15,6 +15,14 @@ This public repository includes the project submission files (in the `Submission
 ## Technical Requirements
 To fully reproduce this project, one will need JupyterLab (or another Python IDE capable of opening .ipynb files). All libraries and packages required to run all of the code are installed and loaded at the beginning of each notebook. One will also need access to a MongoDB database capable of inserting and pulling collections.
 
+## Additional Downloadable Datasets
+Incorporating Spotify audio features data into this project requires the downloading of 6 separate Kaggle datasets from the Web. As these files are too large to include in this repository, the links to download these datasets are listed below:
+* https://www.kaggle.com/datasets/julianoorlandi/spotify-top-songs-and-audio-features
+* https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
+* https://www.kaggle.com/datasets/tomigelo/spotify-audio-features
+* https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs
+* https://www.kaggle.com/datasets/rohitgrewal/spotify-youtube-data
+
 ## Jupyter Notebooks
 `get_songs.ipynb`: This notebook demonstrates the process of web-scraping song titles, artists, and chart years from the Hot 100 Weekly Billboard Charts by year using the BeautifulSoup package in Python; it produces a saved dataframe with songs named `all_songs_clean.csv`.
 
