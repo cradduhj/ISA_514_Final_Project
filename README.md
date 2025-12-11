@@ -4,10 +4,10 @@
 This repository contains all of the Jupyter notebooks and individual assignment submissions related to the Fall 2025 ISA 514 Final Group Project.
 
 ## Team Members
-Harrison Cradduck, Marah Donahoe, Joey Endres, & William Knapp
+Harrison Cradduck, Marah Donahoe, Joseph Endres, & William Knapp
 
 ## Project Overview
-Producers/record labels make money when their signed artists and bands create popular songs, so our goal to help them get a better understanding of what makes a song “popular” or “viral” by building models to predict the success/popularity of a song on YouTube (measured as number of views) through the use of predictors like genre, artist history & type, song audio features, sentiment analysis of the lyrics and titles, and other text mining techniques.
+Producers/record labels make money when their signed artists and bands create popular songs, so our goal to help them get a better understanding of what makes a song “popular” or “viral” by building models to predict the success/popularity of a song on YouTube (measured as number of views) through the use of predictors like genre, artist history & type, song audio features, sentiment analysis of the lyrics and titles, subjectivity analysis, and LDA topic modeling.
 
 ## Repository Structure
 This public repository includes the project submission files (in the `Submission` folder) in addition to the series of Jupyter notebooks necessary to collect, analyze, engineer, and model our data. Each of the files below must be run in the order that they are listed to fully and exactly reproduce the data collection, data analysis, feature engineering, and predictive modeling processes described in this project.
